@@ -14,3 +14,47 @@ export function absoluteUrl(path: string) {
     process.env.PORT ?? 3000
   }${path}`
 }
+
+export function constructMetadata({
+  title = "pdfpro - the pdf Genius",
+  description = "pdfpro is an Open source AI that helps you extract information and chat with your PDF files effortlessly.",
+  image = "/thumbnail.png",
+  icons = "/favicon.ico",
+  noIndex = false
+} : {
+  title?: string,
+  description?: string,
+  image?: string,
+  icons?: string,
+  noIndex?: boolean
+} = {}) : Metadata {
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: image
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+      creator: "@JOSHUAP87562679"
+    },
+    icons, 
+    metadataBase: new URL('https://pdfpro.vercel.app'),
+    themeColor: '#FFF',
+    ...(noIndex && {
+      robots: {
+        index: false,
+        follow: false,
+      }
+    })    
+  }
+}
