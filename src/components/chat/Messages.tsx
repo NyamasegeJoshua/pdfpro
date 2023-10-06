@@ -24,7 +24,7 @@ const Messages = ({ fileId }: MessagesProps) => {
       limit: INFINITE_QUERY_LIMIT,
     },
     {
-      getNextPageParam: (lastPage) => lastPage?.nextCusrsor,
+      getNextPageParam: (lastPage) => lastPage?.nextCursor,
       keepPreviousData: true,
     }
   );
