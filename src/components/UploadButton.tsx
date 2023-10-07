@@ -11,11 +11,17 @@ import { useToast } from "./ui/use-toast";
 import { trpc } from "@/app/_trpc/client";
 import { useRouter } from "next/navigation";
 
-const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
+const UploadDropzone = ({ 
+  isSubscribed, 
+}: { 
+  isSubscribed: boolean 
+}) => {
   const router = useRouter();
 
-  const [isUploading, setIsUploading] = useState<boolean>(false);
-  const [uploadProgress, setUploadProgress] = useState<number>(0);
+  const [isUploading, setIsUploading] = 
+  useState<boolean>(false);
+  const [uploadProgress, setUploadProgress] = 
+  useState<number>(0);
 
   const { toast } = useToast();
 
@@ -69,6 +75,7 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
         const [fileResponse] = res;
 
         const key = fileResponse?.key;
+        
         if (!key) {
           return toast({
             title: "Something went wrong!",
@@ -148,7 +155,11 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
   );
 };
 
-const UploadButton = ({ isSubscribed }: { isSubscribed: boolean }) => {
+const UploadButton = ({ 
+  isSubscribed 
+}: { 
+  isSubscribed: boolean 
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (

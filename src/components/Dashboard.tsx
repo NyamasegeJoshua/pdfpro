@@ -13,16 +13,18 @@ import { getUserSubscriptionPlan } from "@/lib/stripe";
 interface PageProps {
   subScriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>
 }
+
 const Dashboard = ({subScriptionPlan}: PageProps) => {
-  const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<
-    string | null
-  >(null);
+  const [currentlyDeletingFile, setCurrentlyDeletingFile] = 
+  useState<string | null >(null);
 
   const utils = trpc.useContext();
 
-  const { data: files, isLoading } = trpc.getUserFiles.useQuery();
+  const { data: files, isLoading } = 
+  trpc.getUserFiles.useQuery();
 
-  const { mutate: deleteFile } = trpc.deleteFile.useMutation({
+  const { mutate: deleteFile } = 
+  trpc.deleteFile.useMutation({
     onSuccess: () => {
       // TODO: refresh the list of files
       utils.getUserFiles.invalidate();
@@ -39,7 +41,9 @@ const Dashboard = ({subScriptionPlan}: PageProps) => {
   return (
     <main className="mx-auto max-w-7xl md:p-10">
       <div className="mt-8  flex flex-col items-start justify-between gap-4 border-b border-gray-200 pb-5 sm:flex-row sm:items-center sm:gap-0">
-        <h1 className="mb-3 font-bold text-5xl text-gray-900">My Files</h1>
+        <h1 className="mb-3 font-bold text-5xl text-gray-900">
+          My Files
+          </h1>
 
         <UploadButton isSubscribed={subScriptionPlan.isSubscribed} />
       </div>
@@ -77,8 +81,12 @@ const Dashboard = ({subScriptionPlan}: PageProps) => {
                 <div className="px-6 mt-4 grid grid-cols-3 place-items-center py-2 gap-6 text-xs text-zinc-500">
                   <div className="flex items-center gap-2">
                     <Plus className="h-4 w-4" />
-                    {format(new Date(file.createdAt), "MMM yyyy")}
+                    {format(
+                      new Date(file.createdAt), 
+                      "MMM yyyy"
+                      )}
                   </div>
+                  
                   <div className="flex items-center gap-2">
                     <MessageSquare className="h-4 w-4" />
                     mocked

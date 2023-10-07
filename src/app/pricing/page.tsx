@@ -20,7 +20,7 @@ const Page = () => {
   const pricingItems = [
     {
       plan: "Free",
-      tagline: "For small side projects.",
+      tagline: "For small projects.",
       quota: 10,
       features: [
         {
@@ -82,6 +82,7 @@ const Page = () => {
             we&apos;ve got you covered!
           </p>
         </div>
+
         <div className="pt-12 grid grid-cols-1 gap-10 lg:grid-cols-2">
           <TooltipProvider>
             {pricingItems.map(({ plan, tagline, quota, features }) => {

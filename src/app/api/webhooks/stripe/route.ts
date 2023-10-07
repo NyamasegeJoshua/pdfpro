@@ -22,7 +22,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const session = event.data.object as Stripe.Checkout.Session;
+  const session = event.data
+  .object as Stripe.Checkout.Session;
 
   if (!session?.metadata?.userId) {
     return new Response(null, {
@@ -31,7 +32,8 @@ export async function POST(request: Request) {
   }
 
   if (event.type === "checkout.session.completed") {
-    const subscription = await stripe.subscriptions.retrieve(
+    const subscription = 
+    await stripe.subscriptions.retrieve(
       session.subscription as string
     );
     await db.user.update({

@@ -103,7 +103,7 @@ export default function Home() {
                 Upload your PDF file.
               </span>
               <span className="mt-2 text-zinc-700">
-                We&apos;ll process your file and make it redy to chat with.
+                We&apos;ll process your file and make it ready to chat with.
               </span>
             </div>
           </li>

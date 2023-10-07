@@ -12,7 +12,8 @@ interface MessagesProps {
 }
 
 const Messages = ({ fileId }: MessagesProps) => {
-  const { isLoading: isAiThinking } = useContext(ChatContext);
+  const { isLoading: isAiThinking } = 
+  useContext(ChatContext);
 
   const {
     data,
@@ -24,12 +25,14 @@ const Messages = ({ fileId }: MessagesProps) => {
       limit: INFINITE_QUERY_LIMIT,
     },
     {
-      getNextPageParam: (lastPage) => lastPage?.nextCursor,
+      getNextPageParam: (lastPage) => 
+      lastPage?.nextCursor,
       keepPreviousData: true,
     }
   );
 
-  const messages = data?.pages.flatMap((page) => page.messages);
+  const messages = data?.pages.flatMap(
+    (page) => page.messages);
 
   const loadingMessage = {
     createdAt: new Date().toISOString(),
@@ -67,6 +70,7 @@ const Messages = ({ fileId }: MessagesProps) => {
           const isNextMessageSamePerson =
             combinedMessages[i - 1]?.isUserMessage ===
             combinedMessages[i]?.isUserMessage;
+            
           if (i === combinedMessages.length - 1) {
             return (
               <Message

@@ -23,7 +23,7 @@ const Navbar = () => {
           </Link>
 
           {/* mobile navbar*/}
-          <MobileNav isAuth= {!!user} />
+          <MobileNav isAuth={!!user} />
 
           <div className="hidden items-center space-x-4 sm:flex">
             {!user ? (
@@ -68,12 +68,12 @@ const Navbar = () => {
 
                 <UserAccountNav
                   name={
-                            !user.given_name || !user.family_name 
-                            ? 'Your Account' : `${user.given_name} ${user.family_name}`
-                        }
-                        email={user.email ?? ''}
-                        imageUrl={user.picture ?? ''}
-
+                    !user.given_name || !user.family_name
+                      ? "Your Account"
+                      : `${user.given_name} ${user.family_name}`
+                  }
+                  email={user.email ?? ""}
+                  imageUrl={user.picture ?? ""}
                 />
               </>
             )}

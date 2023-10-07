@@ -17,9 +17,11 @@ export const POST = async (req: NextRequest) => {
 
   const { id: userId } = user;
 
-  if (!userId) return new Response("Unauthorized", { status: 401 });
+  if (!userId) 
+    return new Response("Unauthorized", { status: 401 });
 
-  const { fileId, message } = SendMessageValidator.parse(body);
+  const { fileId, message } = 
+    SendMessageValidator.parse(body);
 
   const file = await db.file.findFirst({
     where: {
@@ -28,7 +30,8 @@ export const POST = async (req: NextRequest) => {
     },
   });
 
-  if (!file) return new Response("Not found", { status: 404 });
+  if (!file) 
+    return new Response("Not found", { status: 404 });
 
   await db.message.create({
     data: {
@@ -65,7 +68,9 @@ export const POST = async (req: NextRequest) => {
   });
 
   const formattedPrevMessages = prevMessages.map((msg) => ({
-    role: msg.isUserMessage ? ("user" as const) : ("assistant" as const),
+    role: msg.isUserMessage 
+    ? ("user" as const) 
+    : ("assistant" as const),
     content: msg.text,
   }));
 
