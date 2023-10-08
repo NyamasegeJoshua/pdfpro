@@ -14,7 +14,7 @@ export default function Home() {
           </p>
         </div>
         <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
-          Chat with your <span className="text-blue-600">Documents</span> in seconds!
+          Chat with your <span className="text-red-600">Documents</span> in seconds!
         </h1>
         <p className="mt-5 max-w-prose text-zinc-700 sm:text-lg">
           With PdfPro, you unlock the power to converse with any PDF document effortlessly. Just a click to upload your PDF,
