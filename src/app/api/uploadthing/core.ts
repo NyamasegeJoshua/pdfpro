@@ -94,6 +94,7 @@ const onUploadComplete = async ({
         const embeddings = new OpenAIEmbeddings({
             openAIApiKey: process.env.OPENAI_API_KEY,
         })
+        console.log("Starting vectorization...");
 
         await PineconeStore.fromDocuments(
             pageLevelDocs, 
@@ -103,6 +104,7 @@ const onUploadComplete = async ({
             namespace: createdFile.id,
         }
         )
+        console.log("Vectorization completed.");
 
         await db.file.update({
             data: {
